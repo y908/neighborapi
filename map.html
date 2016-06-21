@@ -3,24 +3,60 @@
 <head>
   <title>Map</title>
 
-<!--Bootstrap CDN-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
 <!--jQuery CDN-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
-<!--Firebase CDN-->
-<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
-
-
+<meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
 
 </head>
-<div id="here"></div>
+
+
+<script src='https://cdn.jsdelivr.net/jquery.xml2json/1.2/jquery.xml2json.js'></script> 
 
 <!--javascript-->
 <script type="text/javascript" src="map.js"></script>
 
 <body>
+<div id="here"></div>
+<div id="there"></div>
+<div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+
+      function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+    </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgu8V2_XNGoVDCRSTviymDuNqU2ySfzrU&callback=initMap"
+    async defer></script>
 
 </body>
 </html>
